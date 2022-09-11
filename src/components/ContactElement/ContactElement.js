@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 
-export const ContactElement = ({
-    id,
-    name,
-    number,
-}) => {
+export const ContactElement = ({ id, name, number, onDeleteContact }) => {
    return (
-    <li key={id}>{name}: {number}</li>
+        <li>
+            {name} : {number} 
+            <button onClick={() => { onDeleteContact(id) }} type="button">Delete</button>
+        </li>
    ) 
 }
 
-ContactElement.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.number.isRequired,
-}
+
+// ContactElement.propTypes = {
+//     id: PropTypes.number.isRequired,
+//     name: PropTypes.string.isRequired,
+//     number: PropTypes.string.isRequired,
+// }

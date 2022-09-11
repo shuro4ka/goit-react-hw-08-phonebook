@@ -1,15 +1,17 @@
 import { ContactElement } from "components/ContactElement/ContactElement";
 //import PropTypes from "prop-types";
 
-export const ContactList = ({contacts}) => {
+export const ContactList = ({ contacts, onDeleteContact }) => {
     return (
         <ul>
-            {contacts.map(({id, name, number}) => {
+            {contacts.map(({ id, name, number }) => {
                 return (
                     <ContactElement
-                        key={id}
-                        name={name}
-                        number={number}
+                        key={ id }
+                        id={ id }
+                        name={ name }
+                        number={ number } 
+                        onDeleteContact={ onDeleteContact }    
                     />
                 )
             })}

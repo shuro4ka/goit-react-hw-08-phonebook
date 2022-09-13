@@ -49,9 +49,10 @@ export class App extends Component {
     }));
   };
 
+
   render(){
     const filteredContacts = this.filterContacts();
-
+  
     return (
       <div>
         <h1>Phonebook</h1>

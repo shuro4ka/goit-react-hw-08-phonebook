@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { FormikLabel, AddButton, FormikInput } from './ContactForm.styled';
 
 export const ContactForm = ({ addContact }) => {
     const handleSubmit = e => {
@@ -14,14 +15,14 @@ export const ContactForm = ({ addContact }) => {
                 autoComplete="off"
                 onSubmit={handleSubmit} >
                 <label htmlFor="name">
-                    Name
-                <input type="text" name="name" />
+                    <FormikLabel>Name</FormikLabel>
+                <FormikInput type="text" name="name" />
                 </label>
 
                 <label htmlFor="number">
-                Number
+                <FormikLabel>Number</FormikLabel>
                 {/* <input type="number" name="number" /> */}
-                <input
+                <FormikInput 
                     type="tel"
                     name="number"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -30,7 +31,7 @@ export const ContactForm = ({ addContact }) => {
                     />
                 </label>
 
-                <button type="submit">Add contact</button>
+                <AddButton type="submit">Add contact</AddButton>
             </form>
         </Formik>
     )

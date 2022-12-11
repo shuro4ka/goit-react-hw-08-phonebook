@@ -3,6 +3,7 @@ import { ContactList } from "./ContactList/ContactList";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { Filter } from "./Filter/Filter";
 import { nanoid } from 'nanoid';
+import { GlobalStyle } from "./GlobalStyle";
 
 export class App extends Component {
   state = {
@@ -69,6 +70,7 @@ export class App extends Component {
           contacts = {filteredContacts.length > 0 ? filteredContacts : this.state.contacts} 
           onDeleteContact={this.deleteContact}
         />
+        <GlobalStyle/>
       </div>
     );
 };

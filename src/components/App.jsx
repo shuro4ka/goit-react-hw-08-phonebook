@@ -17,12 +17,18 @@ export class App extends Component {
   }
 
   addContact = (name, number) => {
-    const names = this.state.contacts.map((item) => {
-      return item.name;
+    const isExist = this.state.contacts.find((contact) => { 
+      if(contact.name === name || contact.number === number) {
+        return true;
+      } else {
+        return false;
+      }
     });
-    if(names.includes(name)) {
-      return alert('Contact with this name already exists!');
+
+    if (isExist) {
+      return alert('Contact with this details already exists!');
     }
+    
     const newContact = {
       id: nanoid(),
       name,
@@ -67,7 +73,8 @@ export class App extends Component {
         handleInputChange={this.handleInputChange}
         />
         <ContactList 
-          contacts = {filteredContacts.length > 0 ? filteredContacts : this.state.contacts} 
+          // contacts = {filteredContacts.length > 0 ? filteredContacts : this.state.contacts} 
+          contacts = {filteredContacts}
           onDeleteContact={this.deleteContact}
         />
         <GlobalStyle/>

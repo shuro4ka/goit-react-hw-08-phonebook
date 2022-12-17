@@ -23,7 +23,7 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
 ContactList.propTypes = {
     // onDeleteContact:PropTypes.func.isRequired,
     contacts:PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         number: PropTypes.string.isRequired,
         })).isRequired,

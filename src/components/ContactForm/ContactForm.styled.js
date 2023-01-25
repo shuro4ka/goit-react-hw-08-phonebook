@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const FormikLabel = styled.span`
+export const label = styled.span`
     color: blue;
     font-size: 24px;
     font-style: bold;    
@@ -18,7 +18,7 @@ export const AddButton = styled.button`
     font-weight: bold;  
 `;
 
-export const FormikInput = styled.input`
+export const input = styled.input`
       background-color: lightblue;
     color: blue;
 `;

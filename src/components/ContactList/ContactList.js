@@ -1,25 +1,36 @@
 import { ContactElement } from 'components/ContactElement/ContactElement';
 import { useSelector } from 'react-redux';
-import { selectFilter } from 'redux/filtersSlice';
-import { selectContacts } from 'redux/contactsSlice';
+import { selectFilter } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
 
 export const ContactList = () => {
   const filter = useSelector(selectFilter);
-  const contacts = useSelector(selectContacts);
+  const {items, isLoading, error} = useSelector(selectContacts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const getFilteredContacts = () => {
     if (filter) {
-      return contacts.filter(contact =>
+      return items.filter(contact =>
         contact.name.toLowerCase().includes(filter.toLowerCase())
       );
     }
-    return contacts;
+    return items;
   };
 
   const filteredContacts = getFilteredContacts();
 
   return (
-    <section>
+    <div>
+      {isLoading && <b>Loading...</b>}
+      {error && <b>{error.message}</b>}
+      <section>
       <h2>Contacts</h2>
 
       <ul>
@@ -37,5 +48,6 @@ export const ContactList = () => {
           : null}
       </ul>
     </section>
+    </div>
   );
 };

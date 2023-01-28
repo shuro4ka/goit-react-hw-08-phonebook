@@ -1,6 +1,6 @@
 import { DeleteButton } from './ContactElement.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 
 export const ContactElement = ({ id, name, number }) => {

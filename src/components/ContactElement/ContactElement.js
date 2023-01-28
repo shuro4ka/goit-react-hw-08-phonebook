@@ -2,7 +2,6 @@ import { DeleteButton } from './ContactElement.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/operations';
 
-
 export const ContactElement = ({ id, name, number }) => {
   const dispatch = useDispatch();
   return (
@@ -19,5 +18,3 @@ export const ContactElement = ({ id, name, number }) => {
     </li>
   );
 };
-
-

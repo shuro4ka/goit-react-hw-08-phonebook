@@ -1,7 +1,5 @@
 import { AddButton } from './ContactForm.styled';
 import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
-// import { nanoid } from '@reduxjs/toolkit';
 import { addContact } from 'redux/operations';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
@@ -31,7 +29,7 @@ export const ContactForm = () => {
       name: name.value,
       phone: number.value,
     };
-    
+
     dispatch(addContact(contact));
     e.target.reset();
   };
@@ -43,7 +41,6 @@ export const ContactForm = () => {
         <input
           type="text"
           name="name"
-          // onChange={handleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name must be letters and can contain spaces,dashes"
           required

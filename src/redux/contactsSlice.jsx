@@ -27,17 +27,17 @@ const contactsSlice = createSlice({
     [addContact.rejected]: handleRejected,
     [deleteContact.rejected]: handleRejected,
 
-    [fetchContacts.fulfilled] (state, action) {
+    [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     },
-    [addContact.fulfilled] (state, action) {
+    [addContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items.push(action.payload);
     },
-    [deleteContact.fulfilled] (state, action) {
+    [deleteContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       const index = state.items.findIndex(

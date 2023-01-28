@@ -7,13 +7,12 @@ export const App = () => {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm/>
+      <ContactForm />
       <h2>Contacts</h2>
       <p>Find contacts by name</p>
-      <Filter/>
+      <Filter />
       <ContactList />
       <GlobalStyle />
     </>
   );
 };
-

@@ -8,7 +8,7 @@ import { fetchContacts } from 'redux/operations';
 
 export const ContactList = () => {
   const filter = useSelector(selectFilter);
-  const {items, isLoading, error} = useSelector(selectContacts);
+  const { items, isLoading, error } = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,23 +31,23 @@ export const ContactList = () => {
       {isLoading && <b>Loading...</b>}
       {error && <b>{error.message}</b>}
       <section>
-      <h2>Contacts</h2>
+        <h2>Contacts</h2>
 
-      <ul>
-        {Array.isArray(filteredContacts)
-          ? filteredContacts.map(({ id, name, number }) => {
-              return (
-                <ContactElement
-                  key={id}
-                  id={id}
-                  name={name}
-                  number={number}
-                ></ContactElement>
-              );
-            })
-          : null}
-      </ul>
-    </section>
+        <ul>
+          {Array.isArray(filteredContacts)
+            ? filteredContacts.map(({ id, name, number }) => {
+                return (
+                  <ContactElement
+                    key={id}
+                    id={id}
+                    name={name}
+                    number={number}
+                  ></ContactElement>
+                );
+              })
+            : null}
+        </ul>
+      </section>
     </div>
   );
 };

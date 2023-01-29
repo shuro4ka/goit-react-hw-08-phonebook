@@ -12,7 +12,7 @@ export const ContactForm = () => {
     e.preventDefault();
 
     const {
-      elements: { name, number },
+      elements: { name, phone},
     } = e.target;
 
     const index = contacts.findIndex(
@@ -27,8 +27,10 @@ export const ContactForm = () => {
 
     const contact = {
       name: name.value,
-      phone: number.value,
+      phone: phone.value,
+      
     };
+   
 
     dispatch(addContact(contact));
     e.target.reset();
@@ -50,7 +52,7 @@ export const ContactForm = () => {
         Number
         <input
           type="tel"
-          name="number"
+          name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

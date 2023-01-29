@@ -35,13 +35,13 @@ export const ContactList = () => {
 
         <ul>
           {Array.isArray(filteredContacts)
-            ? filteredContacts.map(({ id, name, number }) => {
+            ? filteredContacts.map(({ id, name, phone }) => {
                 return (
                   <ContactElement
                     key={id}
                     id={id}
                     name={name}
-                    number={number}
+                    phone={phone}
                   ></ContactElement>
                 );
               })

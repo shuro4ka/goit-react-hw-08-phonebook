@@ -1,14 +1,13 @@
 import { DeleteButton } from './ContactElement.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 
-export const ContactElement = ({ id, name, phone }) => {
+export const ContactElement = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  console.log(phone, name);
 
   return (
     <li>
-      {name} : {phone}
+      {name} : {number}
       <DeleteButton
         onClick={() => {
           dispatch(deleteContact(id));

@@ -1,10 +1,10 @@
 import { ContactElement } from 'components/ContactElement/ContactElement';
 import { useSelector } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
-import { selectContacts } from 'redux/selectors';
+import { selectFilter } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 
 export const ContactList = () => {
   const filter = useSelector(selectFilter);
@@ -35,13 +35,13 @@ export const ContactList = () => {
 
         <ul>
           {Array.isArray(filteredContacts)
-            ? filteredContacts.map(({ id, name, phone }) => {
+            ? filteredContacts.map(({ id, name, number }) => {
                 return (
                   <ContactElement
                     key={id}
                     id={id}
                     name={name}
-                    phone={phone}
+                    number={number}
                   ></ContactElement>
                 );
               })
